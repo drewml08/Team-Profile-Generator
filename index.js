@@ -1,5 +1,7 @@
 var fs = require('fs');
 
+const TeamWriter = require('./src/TeamWriter');
+
 const inquirer = require('inquirer');
 
 const Manager = require("./lib/Manager");
@@ -53,4 +55,9 @@ manager.prompt().then( async () => {
             team.push(teamMember);
         }  
     }
+
+    var teamwriter = new TeamWriter ('./dist/');
+    teamwriter.write(team);
 });
+
+
